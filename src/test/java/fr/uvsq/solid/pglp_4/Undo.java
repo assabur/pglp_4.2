@@ -1,5 +1,5 @@
 package fr.uvsq.solid.pglp_4;
 
-public class Undo {
+public class Undo extends GeneriqueCommand {
 
 }
