@@ -1,8 +1,11 @@
 package fr.uvsq.solid.pglp_4;
-
+/*
+ * classe implementant la multiplication à l'aide du receiver
+ */
 public class Multiplication implements SpecificCommand {
 	private double a,b;
-	
+	Receveir_specific receiver=new Receveir_specific();
+
 	public Multiplication (double a,double b)
 	{
 		this.a=a;
@@ -10,16 +13,6 @@ public class Multiplication implements SpecificCommand {
 	}
 	
 	public void apply() {
-		this.operation();
-		
+		receiver.multiplication(a, b);		
 	}
-	
-	/**
-	 * méthode de l'opération de multiplication
-	 */
-	public double operation()
-	{
-		return this.a*this.b;
-	}
-
 }

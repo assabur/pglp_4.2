@@ -1,7 +1,10 @@
 package fr.uvsq.solid.pglp_4;
-
+/*
+ * classe implementant la division à l'aide du receiver
+ */
 public class Division implements SpecificCommand{
 	private double a,b;
+	Receveir_specific receiver=new Receveir_specific();
 	
 	public Division(double a,double b)
 	{
@@ -10,16 +13,9 @@ public class Division implements SpecificCommand{
 	}
 	
 	public void apply() {
-		this.operation();
+	receiver.division(a, b);
 		
 	}
 	
-	/**
-	 * méthode de l'opération de division
-	 */
-	public double operation()
-	{
-		return this.a/this.b;
-	}
 }
 

@@ -1,6 +1,7 @@
 package fr.uvsq.solid.pglp_4;
 
 import java.util.HashMap;
+import java.util.Stack;
 /*
  * implementation de la calsse interpreteur
  */
@@ -26,7 +27,7 @@ public class Interpreteur {
 	}
 	
 	/*
-	 * methode qui permet une fois retrouver le nom d'une commande d
+	 * methode qui permet une fois retrouver le nom d'une commande de
 	 * de l'executer
 	 */
 	public void executeCommand (String name)
@@ -38,15 +39,24 @@ public class Interpreteur {
 	}
 	
 	/*
-	 * créons une  méthode static pour initialiser undo et quit
+	 * créons une  méthode static pour initialiser les operations generiques et statiques
 	 */
 	public static Interpreteur init()
 	{		
-		Quit quit= new Quit();
+		double a,b;
+		MoteurRpn moteur= new MoteurRpn();
+		a= moteur.depiler();
+		b=moteur.depiler();
+		
 		
 		Interpreteur interpreteur= new Interpreteur();
-		interpreteur.addCommand("quit", quit);
-		
+		interpreteur.addCommand("quit", new Quit());
+		interpreteur.addCommand("undo", new Undo());
+		interpreteur.addCommand("multiplication", new Multiplication(a, b));
+		interpreteur.addCommand("addition", new Addition(a, b));
+		interpreteur.addCommand("division", new Division(a, b));
+		interpreteur.addCommand("soustraction", new Soustraction(a,b));
+		 
 		return interpreteur;
 		
 	}
