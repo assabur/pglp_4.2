@@ -4,10 +4,11 @@ public class Quit implements GeneriqueCommand {
 /**
  * methode apply de notre command quit
  */
-	
+  Receiver_Generic rg=new Receiver_Generic();
+			
 	public void apply()
 	{
-		System.exit(0);
+		rg.quit();
 	}
 	
 }

@@ -10,7 +10,7 @@ public class MoteurRpn {
 	Receiver_Generic generic=new Receiver_Generic();
 	Receveir_specific specific=new Receveir_specific();
 	SaisieRpn saisie= new SaisieRpn();
-	Stack pile=new Stack<Double>();
+	protected Stack <Double> pile=new Stack<Double>();
 	/**
 	 * méthode permettant 
 	 * l'enregistrement d'une operande
@@ -47,15 +47,10 @@ public class MoteurRpn {
     /*
      * on applique une operation sur les operandes à travers l'interpreteur 
      */
-    public void apply_operation (char a) 
+    public void apply_operation (String a) 
 	 {
-    	switch(a)
-    	{
-    	case '/': interpreteur.executeCommand("division");break;
-    	case '-': interpreteur.executeCommand("soustraction");break;
-    	case '+': interpreteur.executeCommand("addition");break;
-    	case '*': interpreteur.executeCommand("multiplication");break;
-    	default:break;
+    	 interpreteur.executeCommand(a);
+    	
     	}   
-	 }	    
+	 	    
 }

@@ -52,10 +52,10 @@ public class Interpreteur {
 		Interpreteur interpreteur= new Interpreteur();
 		interpreteur.addCommand("quit", new Quit());
 		interpreteur.addCommand("undo", new Undo());
-		interpreteur.addCommand("multiplication", new Multiplication(a, b));
-		interpreteur.addCommand("addition", new Addition(a, b));
-		interpreteur.addCommand("division", new Division(a, b));
-		interpreteur.addCommand("soustraction", new Soustraction(a,b));
+		interpreteur.addCommand("*", new Multiplication(a, b));
+		interpreteur.addCommand("+", new Addition(a, b));
+		interpreteur.addCommand("/", new Division(a, b));
+		interpreteur.addCommand("-", new Soustraction(a,b));
 		 
 		return interpreteur;
 		

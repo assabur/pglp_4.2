@@ -57,7 +57,7 @@ public class SaisieRpn {
 		if(verifisaisie(this.saisie)==false){
 			try {
 					if(this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){
-						moteur.apply_operation(this.saisie.charAt(0));
+						moteur.apply_operation(this.saisie);
 						moteur.affiche(); //(this.saisie);
 					}else{
 						System.out.println("Erreur de saisie ");
