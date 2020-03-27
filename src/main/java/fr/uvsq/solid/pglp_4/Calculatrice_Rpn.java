@@ -1,5 +1,6 @@
 package fr.uvsq.solid.pglp_4;
 
+import Exception.Arithmetic_exception;
 import Exception.ManqueOperandeException;
 import Exception.Pile_vide_exception;
 /*
@@ -9,7 +10,7 @@ public class Calculatrice_Rpn {
 /*
  * methode main de notre calculatrice
  */
-	public static void main(String[] args) throws Pile_vide_exception,ManqueOperandeException {
+	public static void main(String[] args) throws Arithmetic_exception, Pile_vide_exception,ManqueOperandeException {
 		// TODO Auto-generated method stub
 		SaisieRpn cal = new SaisieRpn();
 		try{

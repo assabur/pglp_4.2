@@ -3,14 +3,17 @@ package fr.uvsq.solid.pglp_4;
 import java.util.HashMap;
 import java.util.Stack;
 
+import Exception.Pile_vide_exception;
+
 public class MoteurRpn {
 
-	protected HashMap<String , SpecificCommand> macommande;
-	Interpreteur interpreteur=new Interpreteur();
+
+	protected  Interpreteur interpreteur;
 	Receiver_Generic generic=new Receiver_Generic();
 	Receveir_specific specific=new Receveir_specific();
-	SaisieRpn saisie= new SaisieRpn();
+	//protected  String saisie;
 	protected Stack <Double> pile=new Stack<Double>();
+	
 	/**
 	 * méthode permettant 
 	 * l'enregistrement d'une operande
@@ -27,6 +30,10 @@ public class MoteurRpn {
 	 */
     public double depiler() 
     { 	
+    	if(this.pile.isEmpty()) 
+    	{
+   		  throw new Pile_vide_exception() ;
+	    }
     	return (Double) pile.pop();
     }
 
@@ -43,14 +50,14 @@ public class MoteurRpn {
     	}
     	System.out.println("");
     }
-    
+  	
     /*
      * on applique une operation sur les operandes à travers l'interpreteur 
      */
-    public void apply_operation (String a) 
-	 {
-    	 interpreteur.executeCommand(a);
-    	
-    	}   
-	 	    
+    public void apply_operation (String saisie ) 
+	 { 
+    	System.out.println("passe apply");
+    	 interpreteur=interpreteur.init(this);    	 
+    	 interpreteur.executeCommand(saisie); 	 
+     }   	 	    
 }

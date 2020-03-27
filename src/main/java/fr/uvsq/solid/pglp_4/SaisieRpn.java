@@ -15,22 +15,7 @@ public class SaisieRpn {
 	static Scanner reponse=new Scanner(System.in);
 	static MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
-	
-	/**
-	 * Fonction d'interaction avec l'utilisateur et qui invoque le Moteur RPN
-	 * 
-	 */
-	public void reception() throws ManqueOperandeException
-	{
-		System.out.println("L'expression courante est: ");
-		do{
-			this.saisie=reponse.nextLine();
-			if(!this.saisie.equals("exit")){
-					UseMoteur();
-			}
-		}while(!this.saisie.equals("exit"));		
-	}
-	
+
 	/**
 	 * Fonction qui permet de verifier si utilisateur a saisie une operande ou un operateur
 	 * et renvoi un booleen
@@ -47,6 +32,17 @@ public class SaisieRpn {
 		} 
 		return true;
 	}
+	public void reception() throws ManqueOperandeException
+	{
+		System.out.println("L'expression courante est: ");
+		do{
+			this.saisie=reponse.nextLine();
+			
+					UseMoteur();
+			
+		}while(true);		
+	}
+	
 	
 	/**
 	 * Methode qui s'ocuppe des operations necessaire en fonction de la saisie de l'utilisateur
@@ -59,19 +55,16 @@ public class SaisieRpn {
 	{
 		if(verifisaisie(this.saisie)==false){
 			try {
-					if(this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){
-						moteur.apply_operation(this.saisie);
-						moteur.affiche(); //(this.saisie);
-					}else{
-						System.out.println("Erreur de saisie ");
-					}
-				} catch (Exception e) {
+				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){
 				
-				}
-		}else{
-			moteur.enregistrer(Double.parseDouble(saisie));     //(Double.parseDouble(saisie));
-			moteur.affiche();
-		}
+				moteur.apply_operation(this.saisie);
+					 
+				} catch (Exception e) {}
 		
+		}else{
+			moteur.enregistrer(Double.parseDouble(saisie));     
+		
+		}
+		moteur.affiche();
 	}   
 }

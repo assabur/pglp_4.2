@@ -7,6 +7,7 @@ public class Receveir_specific {
 	 * @param b
 	 * @return
 	 */
+	
 	public double multiplication(double a, double b)
 	{
 		return a*b;
