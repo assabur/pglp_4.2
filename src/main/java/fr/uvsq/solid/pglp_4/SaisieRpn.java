@@ -2,6 +2,9 @@ package fr.uvsq.solid.pglp_4;
 
 import java.util.Scanner;
 
+import Exception.ManqueOperandeException;
+import Exception.Pile_vide_exception;
+
 public class SaisieRpn {
 
 	/**
@@ -9,15 +12,15 @@ public class SaisieRpn {
 	 * Moteur_Rpn: instance du Moteur RPN
 	 * saisie: saisie de l'utilisateur
 	 */
-	private Scanner reponse=new Scanner(System.in);
-	public MoteurRpn moteur =new MoteurRpn();
+	static Scanner reponse=new Scanner(System.in);
+	static MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
 	
 	/**
 	 * Fonction d'interaction avec l'utilisateur et qui invoque le Moteur RPN
 	 * 
 	 */
-	/*public void reception() 
+	public void reception() throws ManqueOperandeException
 	{
 		System.out.println("L'expression courante est: ");
 		do{
@@ -26,7 +29,7 @@ public class SaisieRpn {
 					UseMoteur();
 			}
 		}while(!this.saisie.equals("exit"));		
-	}*/
+	}
 	
 	/**
 	 * Fonction qui permet de verifier si utilisateur a saisie une operande ou un operateur
@@ -52,7 +55,7 @@ public class SaisieRpn {
 	 * @throws ManqueOperandeException : Exception qui gï¿½re le manque
 	 * d'oprande pour effectuer un calcul
 	 */
-	public void UseMoteur() 
+	public void UseMoteur() throws Pile_vide_exception,ManqueOperandeException
 	{
 		if(verifisaisie(this.saisie)==false){
 			try {
@@ -70,20 +73,5 @@ public class SaisieRpn {
 			moteur.affiche();
 		}
 		
-	}
-	
-	/**
-	 * Methode qui permet d'afficher l'expression courante
-	 * @param saisi : operande saisie par utilisateur
-	 */
-    /*public void affichage(String saisi){
-    	System.out.print("L'expression courante est:\t");
-    	if(!moteur.pile.isEmpty())
-    		for(int i=0;i< moteur.pile.size();i++){
-    			System.out.print(moteur.pile.elementAt(i)+"\t");
-    		}
-    }	*/
-
-
-   
+	}   
 }
