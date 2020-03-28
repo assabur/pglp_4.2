@@ -12,8 +12,8 @@ public class SaisieRpn {
 	 * Moteur_Rpn: instance du Moteur RPN
 	 * saisie: saisie de l'utilisateur
 	 */
-	static Scanner reponse=new Scanner(System.in);
-	static MoteurRpn moteur =new MoteurRpn();
+	private final Scanner reponse=new Scanner(System.in);
+	private  MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
 
 	/**
@@ -32,17 +32,16 @@ public class SaisieRpn {
 		} 
 		return true;
 	}
-	public void reception() throws ManqueOperandeException
+	public void reception() throws ManqueOperandeException, Pile_vide_exception
 	{
+		moteur.init();
+		//
 		System.out.println("L'expression courante est: ");
 		do{
-			this.saisie=reponse.nextLine();
-			
-					UseMoteur();
-			
-		}while(true);		
-	}
-	
+			this.saisie=reponse.nextLine();			
+			UseMoteur();			
+		}while(true );		
+	}	
 	
 	/**
 	 * Methode qui s'ocuppe des operations necessaire en fonction de la saisie de l'utilisateur
@@ -53,17 +52,18 @@ public class SaisieRpn {
 	 */
 	public void UseMoteur() throws Pile_vide_exception,ManqueOperandeException
 	{
-		if(verifisaisie(this.saisie)==false){
-			try {
-				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){
-				
-				moteur.apply_operation(this.saisie);
-					 
-				} catch (Exception e) {}
-		
-		}else{
+		if(verifisaisie(this.saisie)==false)
+		{
+			try 
+			{
+				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){			
+				moteur.apply_operation(this.saisie);					 
+			} catch (Exception e) {}
+	
+		}else
+		{
 			moteur.enregistrer(Double.parseDouble(saisie));     
-		
+			//moteur.affiche();
 		}
 		moteur.affiche();
 	}   

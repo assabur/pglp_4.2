@@ -16,7 +16,7 @@ public class Receiver_Generic {
 	/*
 	 * implementation de la methode undo
 	 */
-	public Stack <Double> undo(Stack <Double> pile )
+	public Stack <Double> undo(Stack<Double> pile )
 	{
 		pile.pop();
 		return  pile;

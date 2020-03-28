@@ -1,21 +1,35 @@
 package fr.uvsq.solid.pglp_4;
+
+import Exception.Pile_pleine_exception;
+import Exception.Pile_vide_exception;
+
 /*
  * classe implementant la division à l'aide du receiver
  */
 public class Division implements SpecificCommand{
 	private double a,b;
-	Receveir_specific receiver=new Receveir_specific();
+	private Receveir_specific receiver;
+	private MoteurRpn moteur;
 	
-	public Division(double a,double b)
+	public Division(Receveir_specific receiver,MoteurRpn moteur) 
 	{
-		this.a=a;
-		this.b=b;
+		this.moteur=moteur;
+		this.receiver=receiver;
 	}
 	
-	public void apply() {
-	receiver.division(a, b);
-		
+	public void apply()
+	{
+		 
+		try
+		{
+		this.a=moteur.depiler();
+		this.b=moteur.depiler();
+		}
+		catch (Pile_vide_exception e)
+		{
+			e.getMessage();
+		}
+		moteur.enregistrer(receiver.division(a, b));	
 	}
-	
 }
 

@@ -6,26 +6,7 @@ import java.util.HashMap;
  */
 
 public class Interpreteur {
-	private  HashMap<String, CommandInterface> listedescommande;
-	MoteurRpn moteur;//= new MoteurRpn();
-	//protected 
-	/*
-	 * definition du constructeur
-	 */
-	public  Interpreteur()
-	{
-		this.listedescommande=new HashMap<String, CommandInterface>();	
-	}
-	
-	/*
-	 * methode permettant d'ajouter une commande
-	 */
-
-	public void addCommand(String name,CommandInterface command)
-	{
-		
-		this.listedescommande.put(name, command);
-	}
+	private  HashMap<String, CommandInterface> listedescommande=new HashMap<String, CommandInterface>();
 	
 	/*
 	 * methode qui permet une fois retrouver le nom d'une commande de
@@ -33,6 +14,7 @@ public class Interpreteur {
 	 */
 	public void executeCommand (String name)
 	{
+		System.out.println("entrer dans execute");
 		 CommandInterface usercommand = listedescommande.get(name);
 	        if (usercommand == null) {
 	            throw new IllegalStateException("pas de commande enregistré pour " + name);
@@ -41,20 +23,13 @@ public class Interpreteur {
 	        usercommand.apply();
 	        System.out.println("passe apres interpretreur");
 	}
-	/*
-	 * créons une  méthode static pour initialiser les operations generiques et statiques
-	 */
-	public Interpreteur init(MoteurRpn moteur)
-	{	
-		this.moteur=moteur;		
-		
-		this.addCommand("quit", new Quit());
-		this.addCommand("undo", new Undo());
-		this.addCommand("*", new Multiplication(this));
-		//interpreteur.addCommand("+", new Addition(a, b));
-		//interpreteur.addCommand("/", new Division(a, b));
-		//.addCommand("-", new Soustraction(a,b)); 	 
-		return this;
 	
+	/*
+	 * methode permettant d'ajouter une commande
+	 */
+
+	public void addCommand(String name,CommandInterface command)
+	{		
+		this.listedescommande.put(name, command);
 	}	
 }

@@ -10,11 +10,20 @@ public class Calculatrice_Rpn {
 /*
  * methode main de notre calculatrice
  */
-	public static void main(String[] args) throws Arithmetic_exception, Pile_vide_exception,ManqueOperandeException {
+	public static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 		SaisieRpn cal = new SaisieRpn();
 		try{
 			cal.reception();
-		}catch(Exception e){}
+		}
+		catch(Pile_vide_exception e)
+		{
+			e.getMessage();
+		}
+		catch(ManqueOperandeException e)
+		{
+			e.getMessage();
+		}
 		System.out.println("FIN");		
 }}
