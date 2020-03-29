@@ -17,7 +17,7 @@ public class Calculatrice_Rpn {
 	{
 		// TODO Auto-generated method stub
 		SaisieRpn cal = new SaisieRpn();
-		/* Stack <Double> pile=new Stack<Double>();
+		/*Stack <Double> pile=new Stack<Double>();
 		 Stack <Double> pile1=new Stack<Double>();
 		 Stack <Double> pile2=new Stack<Double>();
 		 Stack <Double> pile3 =new Stack<Double>();
@@ -55,4 +55,5 @@ public class Calculatrice_Rpn {
 			e.getMessage();
 		}
 		System.out.println("FIN");		
-}}
+	}
+}

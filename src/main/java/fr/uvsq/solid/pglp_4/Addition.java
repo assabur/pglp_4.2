@@ -13,8 +13,7 @@ public class Addition implements SpecificCommand {
     public Addition(Receveir_specific receiver, MoteurRpn moteur) 
     {
     	this.receiver=receiver;
-    	this.moteur=moteur;
-    	
+    	this.moteur=moteur; 	
     }
 	
 	public void apply()

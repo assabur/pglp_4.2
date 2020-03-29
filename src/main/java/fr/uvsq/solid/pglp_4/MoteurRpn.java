@@ -12,7 +12,7 @@ public class MoteurRpn {
 		protected  Interpreteur interpreteur=new Interpreteur();
 		private Receiver_Generic generic=new Receiver_Generic();
 		private Receveir_specific specific=new Receveir_specific();
-		protected Stack <Double> pile=new Stack<Double>();
+		public Stack <Double> pile=new Stack<Double>();
 		protected HashMap<Integer, Stack<Double>> history_stack=new HashMap<Integer, Stack<Double>>();
 		private GeneriqueCommand quit=new Quit(generic);
 	    private GeneriqueCommand undo=new Undo(generic,this);
@@ -48,8 +48,19 @@ public class MoteurRpn {
     public void save (int save_number) throws Pile_vide_exception
     {
     	Stack<Double> tampon =new Stack<Double>();
-    	//double peek=this.depiler();
-    	history_stack.put(save_number,this.pile);
+    	int taille=this.pile.size(),i=0,test=0;
+    	while (i<taille)
+    	{
+    		tampon.push(this.pile.get(i));
+    		i++;
+    	}
+    	history_stack.put(save_number,tampon);
+    	while (test<history_stack.size())
+    	{
+    		System.out.println("affiche history "+history_stack.get(test).get(test));
+    		test++;
+    	}
+    	
     	// this.enregistrer(peek);
     }
     
@@ -57,11 +68,11 @@ public class MoteurRpn {
     {
     	int test=1,i=1,taille;
     	taille=history_stack.size();
-    	while(taille >1)
+    	/*while(taille >2)
     	{
     		history_stack.remove(i);
     		i++;
-    	}
+    	}*/
     	//System.out.println("test history");
     	return history_stack.get(taille);
     }

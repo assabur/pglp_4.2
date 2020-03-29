@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 
+import Exception.CommandeException;
 import Exception.Pile_vide_exception;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,9 +21,20 @@ public class All_test{
 	@Before
 	public void setup() throws Pile_vide_exception
 	{
+		
 		moteur=new MoteurRpn();
 		saisie=new SaisieRpn();
-		//double test=moteur.depiler();	
+		//initialisons la pile
+		moteur.enregistrer(10);
+		moteur.enregistrer(1);
+		moteur.enregistrer(0);
+		moteur.enregistrer(5);
+		moteur.enregistrer(4);
+		String additionSaisie="+";
+		String divisionSaisie="/";
+		String soustractionSaisie="-";
+		String multiplicationSaisie="*";
+		
 	}
 	
 	@Test
@@ -41,8 +53,48 @@ public class All_test{
 	}
 	
 	@Test
-	public void depiler_test()
+	public void addition_test() throws CommandeException,Pile_vide_exception
 	{
+		moteur.init();
+		moteur.affiche();
+		System.out.println("test addition");
+		moteur.apply_operation("+");
+		moteur.affiche();	
 		
+	}
+
+	@Test
+	public void multiplication_test() throws CommandeException,Pile_vide_exception
+	{
+		moteur.init();
+		moteur.affiche();
+		System.out.println("test Multiplication");
+		moteur.apply_operation("*");
+		moteur.affiche();	
+	}
+	@Test
+	public void division_test() throws CommandeException,Pile_vide_exception
+	{
+		moteur.init();
+		moteur.affiche();
+		System.out.println("test division");
+		moteur.apply_operation("/");
+		moteur.affiche();	
+	}
+	@Test
+	public void soustraction_test() throws CommandeException,Pile_vide_exception
+	{
+		moteur.init();
+		moteur.affiche();
+		System.out.println("test soustraction");
+		moteur.apply_operation("-");
+		moteur.affiche();
+	}
+	@Test
+	public void quit_test() throws CommandeException,Pile_vide_exception
+	{
+		moteur.init();
+		System.out.println("test quit");
+		moteur.apply_operation("quit");		
 	}
 }
