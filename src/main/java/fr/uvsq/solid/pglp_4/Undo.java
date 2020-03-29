@@ -1,5 +1,6 @@
 package fr.uvsq.solid.pglp_4;
 
+import Exception.HistorisationException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
 
@@ -15,7 +16,17 @@ public class Undo implements GeneriqueCommand {
 		this.moteur=moteur;
 		this.rg=receiver;
 	}
-	public void apply() {
-		rg.undo(moteur.pile);
-	} 
+	public void apply() 
+	{
+		try {
+			rg.undo(this.moteur);
+		} catch (HistorisationException e)
+		{		
+			e.getMessage();
+		}
+		 catch (Pile_vide_exception e)
+		{		
+			e.getMessage();
+		}
+	}
 }

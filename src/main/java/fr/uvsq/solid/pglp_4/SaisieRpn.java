@@ -15,6 +15,7 @@ public class SaisieRpn {
 	private final Scanner reponse=new Scanner(System.in);
 	private  MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
+	private int saisie_id=0;
 
 	/**
 	 * Fonction qui permet de verifier si utilisateur a saisie une operande ou un operateur
@@ -57,12 +58,17 @@ public class SaisieRpn {
 			try 
 			{
 				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){			
-				moteur.apply_operation(this.saisie);					 
+				moteur.apply_operation(this.saisie);
+				moteur.save(this.saisie_id +1);
+				//saisie_id++;
+				//System.out.println("saisi id passer");
 			} catch (Exception e) {}
 	
 		}else
 		{
-			moteur.enregistrer(Double.parseDouble(saisie));     
+			moteur.enregistrer(Double.parseDouble(saisie)); 
+			moteur.save(this.saisie_id+1);
+			//saisie_id++;
 			//moteur.affiche();
 		}
 		moteur.affiche();

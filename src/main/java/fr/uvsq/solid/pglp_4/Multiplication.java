@@ -23,12 +23,18 @@ public class Multiplication implements SpecificCommand {
 		try
 			{this.a=moteur.depiler();		
 			this.b=moteur.depiler();
+			moteur.enregistrer(receiver.multiplication(a, b));
 			}
 		catch(Pile_vide_exception e)
 		{ 
+			moteur.enregistrer(a);
 			e.getMessage();
 		}
-			System.out.println("passer multiplixation");
-			moteur.enregistrer(receiver.multiplication(a, b));
+		catch(ManqueOperandeException e)
+		{ 
+				e.getMessage();
+		}
+			//System.out.println("passer multiplixation");
+			
 	}
 }

@@ -3,6 +3,7 @@ package fr.uvsq.solid.pglp_4;
 import java.util.HashMap;
 import java.util.Stack;
 
+import Exception.CommandeException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
 
@@ -12,6 +13,7 @@ public class MoteurRpn {
 		private Receiver_Generic generic=new Receiver_Generic();
 		private Receveir_specific specific=new Receveir_specific();
 		protected Stack <Double> pile=new Stack<Double>();
+		protected HashMap<Integer, Stack<Double>> history_stack=new HashMap<Integer, Stack<Double>>();
 		private GeneriqueCommand quit=new Quit(generic);
 	    private GeneriqueCommand undo=new Undo(generic,this);
 	    private SpecificCommand multiplication=new Multiplication(specific,this);
@@ -39,9 +41,31 @@ public class MoteurRpn {
     	{
    		  throw new Pile_vide_exception();
 	    }
+    	
     	return  pile.pop();
     }
-
+    
+    public void save (int save_number) throws Pile_vide_exception
+    {
+    	Stack<Double> tampon =new Stack<Double>();
+    	//double peek=this.depiler();
+    	history_stack.put(save_number,this.pile);
+    	// this.enregistrer(peek);
+    }
+    
+    public  Stack<Double> get_history()
+    {
+    	int test=1,i=1,taille;
+    	taille=history_stack.size();
+    	while(taille >1)
+    	{
+    		history_stack.remove(i);
+    		i++;
+    	}
+    	//System.out.println("test history");
+    	return history_stack.get(taille);
+    }
+    
 	/**
 	 * methode d'affichage de la pile
 	 * @return
@@ -56,7 +80,6 @@ public class MoteurRpn {
     	}
     	System.out.println("");
     }
-  
     
     public void init()  
 	{			
@@ -70,11 +93,10 @@ public class MoteurRpn {
     /*
      * on applique une operation sur les operandes à travers l'interpreteur 
      */
-    public void apply_operation (String saisie ) 
+    public void apply_operation (String saisie ) throws CommandeException
 	 { 
- 		 System.out.println("passe apply1");
+ 		// System.out.println("passe apply1");
     	 this.interpreteur.executeCommand(saisie);
-    	 System.out.println("passe apply2");
-    	 
+    	// System.out.println("passe apply2");    	 
      }   	 	    
 }

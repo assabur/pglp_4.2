@@ -1,5 +1,6 @@
 package fr.uvsq.solid.pglp_4;
 
+import Exception.ManqueOperandeException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
 
@@ -24,12 +25,19 @@ public class Soustraction implements SpecificCommand {
 		{
 		this.a=moteur.depiler();
 		this.b=moteur.depiler();
+		moteur.enregistrer( receiver.soustraction(a, b));
+
 		}
 		catch (Pile_vide_exception e)
 		{
+			//if(a instanceof double)
+			moteur.enregistrer(a);
 			e.getMessage();
 		}
-		moteur.enregistrer( receiver.soustraction(a, b));
+		catch(ManqueOperandeException e)
+		{ 
+				e.getMessage();
+		}
 		
 	}
 }

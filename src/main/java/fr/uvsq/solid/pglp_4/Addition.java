@@ -1,5 +1,6 @@
 package fr.uvsq.solid.pglp_4;
 
+import Exception.ManqueOperandeException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
 
@@ -17,21 +18,21 @@ public class Addition implements SpecificCommand {
     }
 	
 	public void apply()
-	{
+	{	
 		try
-		{this.a=moteur.depiler();		
-		this.b=moteur.depiler();
+		{
+			this.a=moteur.depiler();	
+			this.b=moteur.depiler();
+			moteur.enregistrer(receiver.addition(a, b));
 		}
 		catch(Pile_vide_exception e)
-			{ 
+		{ 
+			moteur.enregistrer(a);
 				e.getMessage();
-			}
-		moteur.enregistrer(receiver.addition(a, b));
-		/*try
-		{		moteur.affiche();}
-		catch(Pile_vide_exception e)
-		{
-			e.getMessage();
-		}*/
-	}
-}
+		}
+		catch(ManqueOperandeException e)
+		{ 
+				e.getMessage();
+		}
+				
+}}

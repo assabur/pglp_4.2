@@ -1,5 +1,7 @@
 package fr.uvsq.solid.pglp_4;
 
+import Exception.Arithmetic_exception;
+import Exception.ManqueOperandeException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
 
@@ -17,19 +19,28 @@ public class Division implements SpecificCommand{
 		this.receiver=receiver;
 	}
 	
-	public void apply()
+	public void apply() 
 	{
 		 
 		try
 		{
 		this.a=moteur.depiler();
 		this.b=moteur.depiler();
+		moteur.enregistrer(receiver.division(a, b));
 		}
 		catch (Pile_vide_exception e)
 		{
+			moteur.enregistrer(a);
 			e.getMessage();
 		}
-		moteur.enregistrer(receiver.division(a, b));	
+		catch (Arithmetic_exception e)
+		{
+			e.getMessage();
+		}
+		catch(ManqueOperandeException e)
+		{ 
+				e.getMessage();
+		}
 	}
 }
 

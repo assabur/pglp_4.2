@@ -2,6 +2,9 @@ package fr.uvsq.solid.pglp_4;
 
 import java.util.Stack;
 
+import Exception.HistorisationException;
+import Exception.Pile_vide_exception;
+
 /**
  * implementation des methodes generiques quit et undo
  */
@@ -16,9 +19,12 @@ public class Receiver_Generic {
 	/*
 	 * implementation de la methode undo
 	 */
-	public Stack <Double> undo(Stack<Double> pile )
+	public void undo (MoteurRpn moteur ) throws HistorisationException,Pile_vide_exception
 	{
-		pile.pop();
-		return  pile;
+		if(moteur.pile.isEmpty())
+			throw new HistorisationException();
+		else 
+			moteur.pile=moteur.get_history();
+		   //moteur.affiche();
 	}
 }

@@ -1,6 +1,8 @@
 package fr.uvsq.solid.pglp_4;
 
 import java.util.HashMap;
+
+import Exception.CommandeException;
 /*
  * implementation de la calsse interpreteur
  */
@@ -12,16 +14,17 @@ public class Interpreteur {
 	 * methode qui permet une fois retrouver le nom d'une commande de
 	 * de l'executer
 	 */
-	public void executeCommand (String name)
+	public void executeCommand (String name) throws CommandeException
 	{
-		System.out.println("entrer dans execute");
+		//System.out.println("entrer dans execute");
 		 CommandInterface usercommand = listedescommande.get(name);
 	        if (usercommand == null) {
-	            throw new IllegalStateException("pas de commande enregistré pour " + name);
+	        	//System.out.println("erreur de commande");
+	            throw new CommandeException(name);
 	        }
-	        System.out.println("passe avant interpreteur");
+	        
 	        usercommand.apply();
-	        System.out.println("passe apres interpretreur");
+	        //System.out.println("passe apres interpretreur");
 	}
 	
 	/*
