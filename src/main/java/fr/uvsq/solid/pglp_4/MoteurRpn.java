@@ -23,6 +23,7 @@ public class MoteurRpn {
 	    protected double history1;
 	    protected double history2;
 	    private int testeur=0;
+	    protected int test_size;
 	
 	/**
 	 * méthode permettant /*
@@ -53,6 +54,8 @@ public class MoteurRpn {
 		    	this.history2=this.pile.get(c-2);
 		    	testeur++;
     		}
+    		
+    		this.test_size=this.size();
 	    	return  pile.pop();
     }
     /*
@@ -109,6 +112,14 @@ public class MoteurRpn {
     		}	
     	}
     	System.out.println("");
+    }
+    
+    /*
+     * size of pile
+     */
+    public int size ()
+    {
+    	return this.pile.size();
     }
     
     public void init()  

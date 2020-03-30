@@ -15,6 +15,7 @@ public class SaisieRpn {
 	private final Scanner reponse=new Scanner(System.in);
 	private  MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
+	//private String history[ ] = new String [1];
 	//private int saisie_id=0;
 
 	/**
@@ -55,6 +56,7 @@ public class SaisieRpn {
 	{
 		if(verifisaisie(this.saisie)==false)
 		{
+			
 			try 
 			{
 				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){			

@@ -23,11 +23,13 @@ public class Receiver_Generic {
 	{
 		if(moteur.pile.isEmpty())
 			throw new HistorisationException();
-		else 
-			{ 
+		 
+		if(moteur.size() == moteur.test_size)		{	
 				 moteur.pile_remove();
+				// System.out.println("history saisi ");
 				 moteur.enregistrer(moteur.history2);
 				 moteur.enregistrer(moteur.history1);
-			}  
+		}
+			 
 	}
 }
