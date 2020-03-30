@@ -1,5 +1,7 @@
 package Exception;
-
+/*
+ * classe qui implemente l'exception lorsqu'il ya erreur de convertion
+ */
 public class ParseException extends Exception
 {
 	/*

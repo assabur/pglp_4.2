@@ -15,8 +15,6 @@ public class SaisieRpn {
 	private final Scanner reponse=new Scanner(System.in);
 	private  MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
-	//private String history[ ] = new String [1];
-	//private int saisie_id=0;
 
 	/**
 	 * Fonction qui permet de verifier si utilisateur a saisie une operande ou un operateur
@@ -37,7 +35,6 @@ public class SaisieRpn {
 	public void reception() throws ManqueOperandeException, Pile_vide_exception
 	{
 		moteur.init();
-		//
 		System.out.println("L'expression courante est: ");
 		do{
 			this.saisie=reponse.nextLine();			
@@ -47,16 +44,15 @@ public class SaisieRpn {
 	
 	/**
 	 * Methode qui s'ocuppe des operations necessaire en fonction de la saisie de l'utilisateur
-	 * @throws ClasseException : Exception qui gï¿½re la division par zero
+	 * @throws ClasseException : Exception qui gere la division par zero
 	 * @throws PilevideException
-	 * @throws ManqueOperandeException : Exception qui gï¿½re le manque
+	 * @throws ManqueOperandeException : Exception qui gere le manque
 	 * d'oprande pour effectuer un calcul
 	 */
 	public void UseMoteur() throws Pile_vide_exception,ManqueOperandeException
 	{
 		if(verifisaisie(this.saisie)==false)
 		{
-			
 			try 
 			{
 				//if(this.saisie.equals("quit")||this.saisie.equals("undo")||this.saisie.equals("+")||this.saisie.equals("-")||this.saisie.equals("*")||this.saisie.equals("/")){			
@@ -69,9 +65,6 @@ public class SaisieRpn {
 		}else
 		{
 			moteur.enregistrer(Double.parseDouble(saisie)); 
-			//moteur.save(this.saisie_id+1);
-			//saisie_id++;
-			//moteur.affiche();
 		}
 		moteur.affiche();
 	}   

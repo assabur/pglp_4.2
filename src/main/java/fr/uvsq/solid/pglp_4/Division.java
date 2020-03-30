@@ -1,5 +1,4 @@
 package fr.uvsq.solid.pglp_4;
-
 import Exception.Arithmetic_exception;
 import Exception.ManqueOperandeException;
 import Exception.Pile_pleine_exception;
@@ -12,13 +11,18 @@ public class Division implements SpecificCommand{
 	private double a,b;
 	private Receveir_specific receiver;
 	private MoteurRpn moteur;
-	
+	/*
+	 * constructeur
+	 */
 	public Division(Receveir_specific receiver,MoteurRpn moteur) 
 	{
 		this.moteur=moteur;
 		this.receiver=receiver;
 	}
-	
+	/*
+	 * definition de la methode apply
+	 * @see fr.uvsq.solid.pglp_4.SpecificCommand#apply()
+	 */
 	public void apply() 
 	{
 		 

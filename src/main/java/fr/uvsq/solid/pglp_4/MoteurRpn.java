@@ -6,7 +6,9 @@ import java.util.Stack;
 import Exception.CommandeException;
 import Exception.Pile_pleine_exception;
 import Exception.Pile_vide_exception;
-
+/*
+ * classe qui implemente l'ensemble des traitements au niveau de la pile et de la calculatrice
+ */
 public class MoteurRpn {
 
 		protected  Interpreteur interpreteur=new Interpreteur();
@@ -28,7 +30,7 @@ public class MoteurRpn {
 	/**
 	 * méthode permettant /*
 	 * l'enregistrement d'une operande
-	 * @param a
+	 * @param a: valeur a enregistrer
 	 */
 	
 	void enregistrer(double a)
@@ -37,7 +39,7 @@ public class MoteurRpn {
 	}
 	/**
 	 * retirer un element de la pile
-	 * @return
+	 * @return: valeur eux dessus de la pile
 	 */
     public double depiler() throws Pile_vide_exception
     { 	
@@ -115,13 +117,15 @@ public class MoteurRpn {
     }
     
     /*
-     * size of pile
+     * retourne la taille de la pile
      */
     public int size ()
     {
     	return this.pile.size();
     }
-    
+    /*
+     * intialiser les operations de la calculette
+     */
     public void init()  
 	{			
 		this.interpreteur.addCommand("quit",this.quit);

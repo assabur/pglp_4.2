@@ -1,5 +1,7 @@
 package Exception;
-
+/*
+ * classe qui implemente l'exception lorsque la pile est pleine
+ */
 public class Pile_pleine_exception extends Exception
 {
 	/*

@@ -1,5 +1,7 @@
 package Exception;
-
+/*
+ * classe qui implemente les exceptions de types divizion par zero
+ */
 public class Arithmetic_exception extends Exception
 {
 	/*
@@ -9,5 +11,4 @@ public class Arithmetic_exception extends Exception
 	{
 		System.out.println("Division par zero impossible ");
 	}
-
 }

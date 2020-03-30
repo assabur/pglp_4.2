@@ -11,13 +11,18 @@ public class Multiplication implements SpecificCommand {
 	private double a,b;
 	private MoteurRpn moteur;
 	private Receveir_specific receiver;
-
+	/*
+	 * constructeur
+	 */
 	public Multiplication (Receveir_specific receiver,MoteurRpn moteur)
 	{		
 		this.receiver=receiver;	
 		this.moteur=moteur;	
 	}
-	
+	/*
+	 * methode qui applique la multiplication en utilisant un receicer
+	 * @see fr.uvsq.solid.pglp_4.SpecificCommand#apply()
+	 */
 	public void apply() 
 	{
 		try

@@ -12,7 +12,9 @@ public class Soustraction implements SpecificCommand {
 	private double a,b;
 	private Receveir_specific receiver;
 	private MoteurRpn moteur;
-	
+	/*
+	 * constructeur
+	 */
 	public Soustraction(Receveir_specific receiver,MoteurRpn moteur) 
 	{
 		this.receiver=receiver;
