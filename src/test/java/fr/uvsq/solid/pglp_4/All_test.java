@@ -29,11 +29,7 @@ public class All_test{
 		moteur.enregistrer(1);
 		moteur.enregistrer(0);
 		moteur.enregistrer(5);
-		moteur.enregistrer(4);
-		String additionSaisie="+";
-		String divisionSaisie="/";
-		String soustractionSaisie="-";
-		String multiplicationSaisie="*";
+		moteur.enregistrer(4);  
 		
 	}
 	
@@ -81,6 +77,7 @@ public class All_test{
 		moteur.apply_operation("/");
 		moteur.affiche();	
 	}
+	
 	@Test
 	public void soustraction_test() throws CommandeException,Pile_vide_exception
 	{

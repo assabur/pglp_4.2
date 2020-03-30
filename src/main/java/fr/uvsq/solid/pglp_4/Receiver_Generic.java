@@ -24,9 +24,10 @@ public class Receiver_Generic {
 		if(moteur.pile.isEmpty())
 			throw new HistorisationException();
 		else 
-			{ //moteur.depiler();
-			 moteur.pile=moteur.get_history();
-			}
-		   //moteur.affiche();
+			{ 
+				 moteur.pile_remove();
+				 moteur.enregistrer(moteur.history2);
+				 moteur.enregistrer(moteur.history1);
+			}  
 	}
 }

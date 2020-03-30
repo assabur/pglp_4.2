@@ -15,7 +15,7 @@ public class SaisieRpn {
 	private final Scanner reponse=new Scanner(System.in);
 	private  MoteurRpn moteur =new MoteurRpn();
 	private String saisie=new String();
-	private int saisie_id=0;
+	//private int saisie_id=0;
 
 	/**
 	 * Fonction qui permet de verifier si utilisateur a saisie une operande ou un operateur

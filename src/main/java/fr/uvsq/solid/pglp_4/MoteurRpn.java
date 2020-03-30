@@ -20,6 +20,9 @@ public class MoteurRpn {
 	    private SpecificCommand division=new Division(specific,this);
 	    private SpecificCommand soustraction=new Soustraction(specific,this);
 	    private SpecificCommand addition=new Addition (specific,this);
+	    protected double history1;
+	    protected double history2;
+	    private int testeur=0;
 	
 	/**
 	 * méthode permettant /*
@@ -41,11 +44,27 @@ public class MoteurRpn {
     	{
    		  throw new Pile_vide_exception();
 	    }
-    	
-    	return  pile.pop();
+    	    
+    		int c;
+    		if (testeur%2==0)
+    		{
+		    	c=this.pile.size();    	
+		    	this.history1=this.pile.peek();
+		    	this.history2=this.pile.get(c-2);
+		    	testeur++;
+    		}
+	    	return  pile.pop();
     }
-    
-    public void save (int save_number) throws Pile_vide_exception
+    /*
+     * supprimer un element de la pile
+     */
+    public void pile_remove()
+    {
+    	this.pile.pop();
+    }
+  
+     
+ /*   public void save (int save_number) throws Pile_vide_exception
     {
     	Stack<Double> tampon =new Stack<Double>();
     	int taille=this.pile.size(),i=0,test=0;
@@ -74,8 +93,8 @@ public class MoteurRpn {
     		i++;
     	}*/
     	//System.out.println("test history");
-    	return history_stack.get(taille);
-    }
+    	//return history_stack.get(taille);
+    //}
     
 	/**
 	 * methode d'affichage de la pile
