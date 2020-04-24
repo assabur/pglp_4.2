@@ -53,7 +53,7 @@ public class All_test{
 	{
 		moteur.init();
 		moteur.affiche();
-		System.out.println("test addition");
+		Flash.affiche("test addition");
 		moteur.apply_operation("+");
 		moteur.affiche();	
 		
@@ -64,7 +64,7 @@ public class All_test{
 	{
 		moteur.init();
 		moteur.affiche();
-		System.out.println("test Multiplication");
+		Flash.affiche("test Multiplication");
 		moteur.apply_operation("*");
 		moteur.affiche();	
 	}
@@ -73,7 +73,7 @@ public class All_test{
 	{
 		moteur.init();
 		moteur.affiche();
-		System.out.println("test division");
+		Flash.affiche("test division");
 		moteur.apply_operation("/");
 		moteur.affiche();	
 	}
@@ -83,7 +83,7 @@ public class All_test{
 	{
 		moteur.init();
 		moteur.affiche();
-		System.out.println("test soustraction");
+		Flash.affiche("test soustraction");
 		moteur.apply_operation("-");
 		moteur.affiche();
 	}
@@ -91,7 +91,7 @@ public class All_test{
 	public void quit_test() throws CommandeException,Pile_vide_exception
 	{
 		moteur.init();
-		System.out.println("test quit");
+		Flash.affiche("test quit");
 		moteur.apply_operation("quit");		
 	}
 }

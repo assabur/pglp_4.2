@@ -4,7 +4,7 @@ package Exception;
  */
 public class CommandeException  extends Exception{
 	/*
-	 * gestion des exceptions de type commaande n'existant pas
+	 * gestion des exceptions de type commande n'existant pas
 	 */
 	public CommandeException(String commande )
 	{

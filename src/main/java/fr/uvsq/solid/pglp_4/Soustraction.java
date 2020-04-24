@@ -21,7 +21,10 @@ public class Soustraction implements SpecificCommand {
 		this.moteur=moteur;
 	
 	}
-	
+	/*
+	 * applicationd de l'operation 
+	 * @see fr.uvsq.solid.pglp_4.SpecificCommand#apply()
+	 */
 	public void apply() {
 		try
 		{

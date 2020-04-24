@@ -4,11 +4,9 @@ import Exception.CommandeException;
 /*
  * implementation de la calsse interpreteur
  */
-
 public class Interpreteur 
 {
 	private  HashMap<String, CommandInterface> listedescommande=new HashMap<String, CommandInterface>();
-	
 	/*
 	 * methode qui permet une fois retrouver le nom d'une commande de
 	 * de l'executer

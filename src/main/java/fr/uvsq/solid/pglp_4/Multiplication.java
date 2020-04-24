@@ -39,7 +39,6 @@ public class Multiplication implements SpecificCommand {
 		{ 
 				e.getMessage();
 		}
-			//System.out.println("passer multiplixation");
-			
+			//System.out.println("passer multiplixation"		
 	}
 }
